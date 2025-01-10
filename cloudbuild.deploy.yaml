@@ -1,0 +1,23 @@
+steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'map-app'
+      - '--image'
+      - 'gcr.io/jupyterhub-379311/map-app:latest'
+      - '--region'
+      - 'europe-north1'
+      - '--allow-unauthenticated'
+      - '--port'
+      - '8050'
+      - '--cpu'
+      - '2000m'
+      - '--memory'
+      - '2Gi'
+    env:
+      - 'ROOT_PATH=map-app'
+
+images:
+  - 'gcr.io/jupyterhub-379311/map-app:latest'
